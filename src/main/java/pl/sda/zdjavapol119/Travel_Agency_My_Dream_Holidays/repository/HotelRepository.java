@@ -2,9 +2,9 @@ package pl.sda.zdjavapol119.Travel_Agency_My_Dream_Holidays.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import pl.sda.zdjavapol119.Travel_Agency_My_Dream_Holidays.model.Airport;
-import pl.sda.zdjavapol119.Travel_Agency_My_Dream_Holidays.model.Continent;
+import pl.sda.zdjavapol119.Travel_Agency_My_Dream_Holidays.model.Hotel;
 
-public interface ContinentRepository extends JpaRepository<Continent, Integer> {
+public interface HotelRepository extends JpaRepository<Hotel, Integer> {
 
-    Continent findByName(String name);
+    Hotel findByName(String name);
 }

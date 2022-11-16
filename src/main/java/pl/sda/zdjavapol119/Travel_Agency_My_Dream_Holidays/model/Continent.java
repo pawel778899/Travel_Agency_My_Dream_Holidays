@@ -16,6 +16,6 @@ public class Continent {
 
     private String name;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "continent", cascade = CascadeType.ALL)
     private Set<Country> countries;
 }

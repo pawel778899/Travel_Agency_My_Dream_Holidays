@@ -4,7 +4,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.List;
+import java.util.Set;
+
 @Data
 @NoArgsConstructor
 @Entity
@@ -16,10 +17,10 @@ public class Country {
 
     private String name;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     private Continent continent;
 
-    @OneToMany
-    private List<City> cities;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "country", cascade = CascadeType.ALL)
+    private Set<City> cities;
 
 }

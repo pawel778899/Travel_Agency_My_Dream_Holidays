@@ -1,5 +1,6 @@
 package pl.sda.zdjavapol119.Travel_Agency_My_Dream_Holidays.model;
 
+import com.sun.istack.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -18,7 +19,8 @@ public class Client {
 
     private String name;
 
-    private String surename;
+    private String surname;
 
     private String email;
+
 }
