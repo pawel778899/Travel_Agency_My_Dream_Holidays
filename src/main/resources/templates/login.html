@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login page</title>
+</head>
+<body>
+<center><h1>Welcome to My Dream Holidays</h1>
+    <img alt="galeria sztuki" th:src="@{/images/b.jpg}" src="../static/images/b.jpg">
+<style>
+    form * {
+        display: inline-block;
+    }
+</style>
+<form method="post" th:action="@{/login}">
+    <label>
+        Login:
+        <input type="text" name="username">
+    </label>
+    <label>
+        Password:
+        <input type="password" name="password">
+    </label>
+    <button type="submit">Login</button>
+</form>
+<a th:href="@{/}">Home</a>
+</center>
+</body>
+</html>
