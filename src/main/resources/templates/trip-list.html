@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Strona główna</title>
+</head>
+<body><
+<div th:fragment="header">Biuro podróży</div>
+<table class="table">
+    <h3>Promowane wycieczki: </h3>
+
+    <thead>
+    <tr>
+        <th scope="">Cel wycieczki: </th>
+        <th scope="col">Cena za osobę dorosłą: </th>
+        <th scope="col">Czas trwania: </th>
+        <th scope="col">Miejsce wyjazdu: </th>
+
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="tour : ${promotedTours}">
+
+        <td th:text="${tour.destinationCity.name}"/>
+        <td th:text="${tour.adultPrice}"/>
+        <td th:text="${tour.durationTime}"/>
+        <td th:text="${tour.originCity.name}"/>
+
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
