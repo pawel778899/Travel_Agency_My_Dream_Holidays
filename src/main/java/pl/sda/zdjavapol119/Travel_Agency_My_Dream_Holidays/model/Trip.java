@@ -47,7 +47,7 @@ public class Trip {
 
     private BigDecimal childPrice;
 
-    private Boolean promotion; //promoted ???
+    private Boolean promoted;
 
     private Integer  numberPlacesAdults;
 
@@ -55,4 +55,6 @@ public class Trip {
 
     @OneToMany(mappedBy = "trip", cascade = CascadeType.ALL)
     List<PurchasedTrip> purchasedTrip;
+
 }
+

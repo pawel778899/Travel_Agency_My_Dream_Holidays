@@ -6,8 +6,8 @@ import java.util.List;
 
 public interface TripService {
 
-    List<Trip> get3PromotedTrips();
-    List<Trip> get3ComingTrips();
+    List<Trip> getThreePromotedTrips();
+    List<Trip> getThreeIncomingTrips();
 
     List<Trip> getAllTripList();
 }

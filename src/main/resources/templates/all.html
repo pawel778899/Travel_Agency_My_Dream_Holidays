@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <table class="table">
+        <h1>All Trips Available</h1>
+
+        <thead>
+        <tr>
+            <th>Destination city: </th>
+            <th>Origin city: </th>
+            <th>Duration time: </th>
+            <th>Price for adult: </th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr th:each="trip : ${trips}">
+
+            <td th:text="${trip.destinationCity.name}">Mars Alam</td>
+            <td th:text="${trip.originCity.name}">Warsaw</td>
+            <td th:text="${trip.durationTime}">7</td>
+            <td th:text="${trip.adultPrice}">3500</td>
+
+<!--            <td>-->
+<!--                <a th:href="@{/trips/{id}/(id=${trip.id})}">Więcej...</a>-->
+<!--            </td>-->
+        </tr>
+
+        </tbody>
+    </table>
+</head>
+<body>
+
+</body>
+</html>

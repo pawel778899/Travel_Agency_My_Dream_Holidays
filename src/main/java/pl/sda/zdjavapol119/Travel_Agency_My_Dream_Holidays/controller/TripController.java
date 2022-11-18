@@ -13,14 +13,15 @@ public class TripController {
     }
 
     @GetMapping("/trips")
-    public String tourList(ModelMap modelMap) {
+    public String threePromotedTrips(ModelMap modelMap) {
 
-        modelMap.addAttribute("promotedTours", tripService.get3PromotedTrips());
-        modelMap.addAttribute("comingTours", tripService.get3ComingTrips());
-        modelMap.addAttribute("tours", tripService.getAllTripList());
-//        modelMap.addAttribute("filteredTours", filteredTours);
-//        modelMap.addAttribute("activeFilter", activeFilter);
+        modelMap.addAttribute("allPromotedTrips", tripService.getThreePromotedTrips());
+        return "three-promoted-trips";
+    }
 
-        return "trip-list";
+    @GetMapping("/all")
+    public String allTripList(ModelMap modelMap) {
+        modelMap.addAttribute("trips", tripService.getAllTripList());
+        return "all";
     }
 }
