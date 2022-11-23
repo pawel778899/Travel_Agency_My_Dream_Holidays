@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <table class="table">
+        <h1>All Airports</h1>
+
+        <thead>
+        <tr>
+            <th>id: </th>
+            <th>Airport: </th>
+            <th>City: </th>
+            <th>Country: </th>
+            <th>Continent: </th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr th:each="airport : ${airports}">
+
+            <td th:text="${airport.id}">1</td>
+            <td th:text="${airport.name}">Airport</td>
+            <td th:text="${airport.city.name}">Warsaw</td>
+            <td th:text="${airport.city.country.name}">Poland</td>
+            <td th:text="${airport.city.country.continent.name}">Europe</td>
+
+
+<!--                        <td>-->
+<!--                            <a th:href="@{/trips/{id}/(id=${trip.id})}">Więcej...</a>-->
+<!--                        </td>-->
+        </tr>
+
+        </tbody>
+    </table>
+</head>
+<body>
+
+</body>
+</html>

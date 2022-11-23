@@ -17,4 +17,5 @@ public class Airport {
     @ManyToOne(fetch = FetchType.LAZY)
     private City city;
 
+
 }

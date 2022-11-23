@@ -1,11 +1,12 @@
 package pl.sda.zdjavapol119.Travel_Agency_My_Dream_Holidays.service.Implementation;
 
+import org.springframework.stereotype.Service;
 import pl.sda.zdjavapol119.Travel_Agency_My_Dream_Holidays.model.Airport;
 import pl.sda.zdjavapol119.Travel_Agency_My_Dream_Holidays.repository.AirportRepository;
 import pl.sda.zdjavapol119.Travel_Agency_My_Dream_Holidays.service.AirportService;
 
 import java.util.List;
-
+@Service
 public class AirportService_Implementation implements AirportService {
 
     private final AirportRepository airportRepository;

@@ -1,11 +1,12 @@
 package pl.sda.zdjavapol119.Travel_Agency_My_Dream_Holidays.service.Implementation;
 
+import org.springframework.stereotype.Service;
 import pl.sda.zdjavapol119.Travel_Agency_My_Dream_Holidays.model.City;
 import pl.sda.zdjavapol119.Travel_Agency_My_Dream_Holidays.repository.CityRepository;
 import pl.sda.zdjavapol119.Travel_Agency_My_Dream_Holidays.service.CityService;
 
 import java.util.List;
-
+@Service
 public class CityService_Implementation implements CityService {
 
     private final CityRepository cityRepository;

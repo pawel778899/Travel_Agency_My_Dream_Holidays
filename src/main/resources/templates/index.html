@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="pl"xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Home page</title>
@@ -8,7 +8,7 @@
 <center>
 <h1>Welcome</h1>
 <img alt="a" th:src="@{/images/d.jpg}" src="../static/images/d.jpg">
-<p><a th:href="@{/login}">User-Login</a></p> <p><a th:href="@{/admin/panel}">Admin-Login</a></p>
+<p><a th:href="@{/login}">User-Login</a></p> <p><a th:href="@{/admin}">Admin-Login</a></p>
 </center>
 
 

@@ -10,4 +10,7 @@ public interface TripService {
     List<Trip> getThreeIncomingTrips();
 
     List<Trip> getAllTripList();
+
+    Trip getById(Long id);
+
 }

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<center>
+
+    <table border="4" style="width:800px">
+        <tbody>
+        <tr>
+            <td style="">Origin Continent:</td>
+            <td th:text="${trip.originCity.country.continent.name}"></td>
+            <td style>Origin Country:</td>
+            <td th:text="${trip.originCity.country.name}"></td>
+            <td style>Origin City:</td>
+            <td th:text="${trip.originCity.name}"></td>
+            <td style>Origin Airport:</td>
+            <td th:text="${trip.originAirport.name}"></td>
+        </tr>
+
+        <tr>
+            <td style>Destination Continent:</td>
+            <td th:text="${trip.destinationCity.country.continent.name}"></td>
+            <td style>Destination Country:</td>
+            <td th:text="${trip.destinationCity.country.name}"></td>
+            <td style>Destination City:</td>
+            <td th:text="${trip.destinationCity.name}"></td>
+            <td style>Destination Airport:</td>
+            <td th:text="${trip.destinationAirport.name}"></td>
+        </tr>
+        <tr>
+            <td style>Hotel:</td>
+            <td th:text="${trip.destinationHotel.name}"></td>
+
+        </tr>
+        <tr>
+            <td style>Hotel Description:</td>
+            <td th:text="${trip.destinationHotel.description}"></td>
+        </tr>
+        <tr>
+            <td style>Start date</td>
+            <td th:text="${trip.startDate}"></td>
+            <td style>End date</td>
+            <td th:text="${trip.endDate}"></td>
+        </tr>
+        <tr>
+            <td style>Number of available places for adults</td>
+            <td th:text="${trip.numberPlacesAdults}"></td>
+            <td style>Number of available places for children</td>
+            <td th:text="${trip.numberPlacesChildren}"></td>
+        </tr>
+        <tr>
+            <td style>Adult price</td>
+            <td th:text="${trip.adultPrice}"></td>
+            <td style>Child price</td>
+            <td th:text="${trip.childPrice}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+
+<!--    <a th:href="@{/trip/buy_trip/{id}(id=${trip.id})}">Kup teraz</a>-->
+    <a th:href="@{/}">Home</a>
+
+
+</center>
+</body>
+</html>

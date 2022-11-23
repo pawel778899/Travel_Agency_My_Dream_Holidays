@@ -18,12 +18,12 @@ INSERT INTO city (id, name, country_id) VALUES (5, 'Tokyo', 5);
 INSERT INTO city (id, name, country_id) VALUES (6, 'Sydney', 6);
 
 
-INSERT INTO hotel (id, name, standard, description, city_id) values (1, 'Hotel in Warsaw', 4, 'Beautiful hotel', 1);
-INSERT INTO hotel (id, name, standard, description, city_id) values (2, 'Hotel in Mars Alam', 5, 'Excellent hotel', 2);
-INSERT INTO hotel (id, name, standard, description, city_id) values (3, 'Hotel in Barcelona', 3, 'Medium hotel', 3);
-INSERT INTO hotel (id, name, standard, description, city_id) values (4, 'Hotel in Unguja', 4, 'Beautiful hotel.', 4);
-INSERT INTO hotel (id, name, standard, description, city_id) values (5, 'Hotel in Tokyo', 3, 'Medium hotel', 5);
-INSERT INTO hotel (id, name, standard, description, city_id) values (6, 'Hotel in Sydney', 3, 'Medium hotel', 6);
+INSERT INTO hotel (id, name, standard, description, city_id) values (1, 'Hotel in Warsaw', 4, 'Description: Beautiful hotel', 1);
+INSERT INTO hotel (id, name, standard, description, city_id) values (2, 'Hotel in Mars Alam', 5, 'Description: Excellent hotel', 2);
+INSERT INTO hotel (id, name, standard, description, city_id) values (3, 'Hotel in Barcelona', 3, 'Description: Medium hotel', 3);
+INSERT INTO hotel (id, name, standard, description, city_id) values (4, 'Hotel in Unguja', 4, 'Description: Beautiful hotel.', 4);
+INSERT INTO hotel (id, name, standard, description, city_id) values (5, 'Hotel in Tokyo', 3, 'Description: Medium hotel', 5);
+INSERT INTO hotel (id, name, standard, description, city_id) values (6, 'Hotel in Sydney', 3, 'Description: Medium hotel', 6);
 
 INSERT INTO airport (id, name, city_id) VALUES (1, 'Airport in Wasaw',1);
 INSERT INTO airport (id, name, city_id) VALUES (2, 'Airport in Mars Alam',2);
