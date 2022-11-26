@@ -17,11 +17,11 @@ public class TripController {
     }
 
     //3 promowane oferty
-    @GetMapping("/three")
+    @GetMapping("/threePromoted")
     public String threePromotedTrips(ModelMap modelMap) {
 
-        modelMap.addAttribute("allPromotedTrips", tripService.getThreePromotedTrips());
-        return "three-promoted-trips";
+        modelMap.addAttribute("threePromotedTrips", tripService.getThreePromotedTrips());
+        return "threePromotedTrips";
     }
 
     //Wszystkie oferty
@@ -36,5 +36,11 @@ public class TripController {
         Trip trip = tripService.getById(id);
         modelMap.addAttribute("trip", trip);
         return "tripDescription";
+    }
+
+    @GetMapping(path = "/threeClosest")
+    public String threeClosestTrips(ModelMap modelMap) {
+        modelMap.addAttribute("threeClosestTrips", tripService.getThreeClosestTrips());
+        return "threeClosestTrips";
     }
 }
