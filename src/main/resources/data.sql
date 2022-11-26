@@ -32,9 +32,6 @@ INSERT INTO airport (id, name, city_id) VALUES (4, 'Airport in Unguja',4);
 INSERT INTO airport (id, name, city_id) VALUES (5, 'Airport in Tokyo',5);
 INSERT INTO airport (id, name, city_id) VALUES (6, 'Airport in Sydney',6);
 
-
-
-
 INSERT INTO trip(origin_city_id, origin_airport_id, destination_city_id, destination_airport_id, destination_hotel_id, start_date, end_date, duration_time, adult_price, child_price, promoted, number_places_adults , number_places_children)VALUES (1, 1, 2, 2, 2, '2023-07-1', '2023-07-8', 7, 3000, 2800, 1, 15, 10);
 INSERT INTO trip(origin_city_id, origin_airport_id, destination_city_id, destination_airport_id, destination_hotel_id, start_date, end_date, duration_time, adult_price, child_price, promoted, number_places_adults, number_places_children)VALUES (1, 1, 3, 3, 3, '2023-07-2', '2023-07-9', 7, 3100, 2900, 0, 20, 11);
 INSERT INTO trip(origin_city_id, origin_airport_id, destination_city_id, destination_airport_id, destination_hotel_id, start_date, end_date, duration_time, adult_price, child_price, promoted, number_places_adults, number_places_children)values (1, 1, 4, 4, 4, '2023-07-3', '2023-07-10', 7, 3200, 3000, 1, 25, 12);

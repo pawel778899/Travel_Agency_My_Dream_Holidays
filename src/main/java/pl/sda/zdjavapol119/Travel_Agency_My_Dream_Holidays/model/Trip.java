@@ -55,6 +55,5 @@ public class Trip {
 
     @OneToMany(mappedBy = "trip", cascade = CascadeType.ALL)
     List<PurchasedTrip> purchasedTrip;
-
 }
 
