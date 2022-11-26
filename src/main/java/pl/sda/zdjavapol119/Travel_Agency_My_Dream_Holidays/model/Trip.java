@@ -42,6 +42,11 @@ public class Trip {
     private Integer durationTime;
 
     //typ: (BB, HB, FB, AI - http://zw.lt/rozmaitosci/wyzywienie-w-hotelach-co-oznaczaja-bb-hb-fb-ai-ov-zpr/)
+    //BB (bed & breakfast) – samo śniadanie
+    //
+    //HB (half board) – śniadanie i obiadokolacja
+    //
+    //FB (full board) – pełne wyżywienie, które obejmuje śniadanie, obiad, kolację
 
     private BigDecimal adultPrice;
 

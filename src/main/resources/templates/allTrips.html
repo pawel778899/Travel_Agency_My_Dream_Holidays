@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
+
     <meta charset="UTF-8">
     <title>Title</title>
+</head>
+<body>
+<center>
     <table class="table">
-        <h1>All Trips Available</h1>
-
+        <h1><div th:text="My_Dream_Holidays">Travel Agency My Dream Holidays</div></h1>
+        <table border="4" style="width:800px">
+            <h2>All Trips Available</h2>
         <thead>
         <tr>
             <th>Destination city: </th>
             <th>Origin city: </th>
             <th>Duration time: </th>
             <th>Price for adult: </th>
+            <th>Price for child: </th>
         </tr>
         </thead>
         <tbody>
@@ -22,16 +28,16 @@
             <td th:text="${trip.originCity.name}">Warsaw</td>
             <td th:text="${trip.durationTime}">7</td>
             <td th:text="${trip.adultPrice}">3500</td>
+            <td th:text="${trip.childPrice}">3000</td>
 
             <td>
                 <a th:href="@{/trips/{id}/(id=${trip.id})}">Details...</a>
             </td>
         </tr>
-
         </tbody>
     </table>
-</head>
-<body>
 
+    <a th:href="@{/mainPage}">Main-Page</a>
+</center>
 </body>
 </html>

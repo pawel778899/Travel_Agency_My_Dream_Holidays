@@ -19,7 +19,6 @@ public class TripController {
     //3 promowane oferty
     @GetMapping("/threePromoted")
     public String threePromotedTrips(ModelMap modelMap) {
-
         modelMap.addAttribute("threePromotedTrips", tripService.getThreePromotedTrips());
         return "threePromotedTrips";
     }
@@ -31,6 +30,7 @@ public class TripController {
         return "allTrips";
     }
 
+    //Opis wycieczek
     @GetMapping("/trips/{id}")
     public String displayTripDescription(@PathVariable Long id, ModelMap modelMap) {
         Trip trip = tripService.getById(id);
@@ -38,9 +38,13 @@ public class TripController {
         return "tripDescription";
     }
 
-    @GetMapping(path = "/threeClosest")
+    //3 najbliższe oferty
+    @GetMapping("/threeClosest")
     public String threeClosestTrips(ModelMap modelMap) {
         modelMap.addAttribute("threeClosestTrips", tripService.getThreeClosestTrips());
         return "threeClosestTrips";
     }
+
+    //Zbliżające się wycieczki z podziałem na kontynenty
+
 }

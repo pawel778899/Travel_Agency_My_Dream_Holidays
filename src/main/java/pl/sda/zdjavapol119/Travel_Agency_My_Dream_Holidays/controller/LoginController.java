@@ -23,18 +23,6 @@ public class LoginController {
         return "adminPanel";
     }
 
-//    @GetMapping( "/logout")
-//    public String logout(HttpServletRequest request, HttpServletResponse response) {
-//
-//        final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-//
-//        if (authentication != null) {
-//            new SecurityContextLogoutHandler().logout(request, response, authentication);
-//        }
-//
-//        return "redirect:/";
-//    }
-
     @GetMapping("/logout")
     public RedirectView logout(HttpServletRequest request, HttpServletResponse response) {
 

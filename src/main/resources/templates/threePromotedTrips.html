@@ -7,10 +7,10 @@
 </head>
 <body>
 <center>
-    <div th:text="header">Travel Agency My Dream Holidays</div>
+    <h1><div th:text="My_Dream_Holidays">Travel Agency My Dream Holidays</div></h1>
 
     <table border="4" style="width:800px">
-        <h1>Three Promoted Trips: </h1>
+        <h2>Three Promoted Trips: </h2>
         <thead>
         <tr>
             <th>Destination city: </th>
@@ -31,6 +31,7 @@
         </tr>
         </tbody>
     </table>
+    <a th:href="@{/mainPage}">Main-Page</a>
 </center>
 </body>
 </html>
