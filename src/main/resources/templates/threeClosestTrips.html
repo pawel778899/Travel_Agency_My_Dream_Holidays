@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Three Promoted Trips</title>
+</head>
+<body>
+<center>
+    <div th:text="header">Travel Agency My Dream Holidays</div>
+
+    <table border="4" style="width:800px">
+        <h1>Three Closest Trips: </h1>
+
+        <thead>
+        <tr>
+            <th>Destination city: </th>
+            <th>Origin city: </th>
+            <th>Duration time: </th>
+            <th>Price for adult: </th>
+            <th>Price for child: </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="trip : ${threeClosestTrips}">
+            <td th:text="${trip.destinationCity.name}">Barcelona</td>
+            <td th:text="${trip.originCity.name}">Warsaw</td>
+            <td th:text="${trip.durationTime}">2</td>
+            <td th:text="${trip.adultPrice}">4000</td>
+            <td th:text="${trip.childPrice}">3000</td>
+            <td><a th:href="@{/trips/{id}/(id=${trip.id})}">Details...</a></td>
+        </tr>
+        </tbody>
+    </table>
+</center>
+</body>
+</html>
+

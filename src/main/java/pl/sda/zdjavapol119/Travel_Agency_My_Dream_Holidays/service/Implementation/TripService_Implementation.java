@@ -6,7 +6,9 @@ import pl.sda.zdjavapol119.Travel_Agency_My_Dream_Holidays.repository.TripReposi
 import pl.sda.zdjavapol119.Travel_Agency_My_Dream_Holidays.service.TripService;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class TripService_Implementation implements TripService {
@@ -34,8 +36,24 @@ public class TripService_Implementation implements TripService {
     }
 
     @Override
-    public List<Trip> getThreeIncomingTrips() {
-        return null;
+    public List<Trip> getThreeClosestTrips() {
+
+        List<Trip> allAvailableTripsSortedByDate = tripRepository
+                .findAll()
+                .stream()
+                .sorted((Comparator.comparing(trip -> trip.getStartDate())))
+                .collect(Collectors.toList());
+
+        List<Trip> closestTrips = new ArrayList<>();
+        int closestTripsCounter = 0;
+
+        for (Trip trip : allAvailableTripsSortedByDate) {
+            if (closestTripsCounter < 3) {
+                closestTrips.add(trip);
+                closestTripsCounter++;
+            }
+        }
+        return closestTrips;
     }
 
     @Override

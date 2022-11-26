@@ -11,7 +11,6 @@
 
     <table border="4" style="width:800px">
         <h1>Three Promoted Trips: </h1>
-
         <thead>
         <tr>
             <th>Destination city: </th>
@@ -22,17 +21,13 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="trip : ${allPromotedTrips}">
+        <tr th:each="trip : ${threePromotedTrips}">
             <td th:text="${trip.destinationCity.name}">Barcelona</td>
             <td th:text="${trip.originCity.name}">Warsaw</td>
             <td th:text="${trip.durationTime}">2</td>
             <td th:text="${trip.adultPrice}">4000</td>
             <td th:text="${trip.childPrice}">3000</td>
-
-            <td>
-                <a th:href="@{/trips/{id}/(id=${trip.id})}">Details...</a>
-
-            </td>
+            <td><a th:href="@{/trips/{id}/(id=${trip.id})}">Details...</a></td>
         </tr>
         </tbody>
     </table>
