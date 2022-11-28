@@ -10,7 +10,8 @@ public interface TripService {
     List<Trip> getThreeClosestTrips();
 
     List<Trip> getAllTripList();
-
     Trip getById(Long id);
+
+    List<Trip> getThreeClosestTripsByDateAndContinent();
 
 }

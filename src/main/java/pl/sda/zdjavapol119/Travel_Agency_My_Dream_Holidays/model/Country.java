@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -23,4 +24,6 @@ public class Country {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "country", cascade = CascadeType.ALL)
     private Set<City> cities;
 
+    @OneToMany(mappedBy = "destinationCountry", cascade = CascadeType.ALL)
+    private List<Trip> trips;
 }

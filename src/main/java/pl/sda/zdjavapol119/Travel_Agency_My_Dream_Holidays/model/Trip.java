@@ -21,6 +21,12 @@ public class Trip {
     @ManyToOne(fetch = FetchType.EAGER)
     private City originCity;
 
+    @ManyToOne
+    private Continent destinationContinent;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Country destinationCountry;
+
     @ManyToOne(fetch = FetchType.EAGER)
     private Airport originAirport;
 
@@ -61,4 +67,5 @@ public class Trip {
     @OneToMany(mappedBy = "trip", cascade = CascadeType.ALL)
     List<PurchasedTrip> purchasedTrip;
 }
+
 

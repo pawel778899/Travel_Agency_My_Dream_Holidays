@@ -22,17 +22,13 @@ public class TripService_Implementation implements TripService {
     @Override
     public List<Trip> getThreePromotedTrips() {
 
-        List<Trip> allAvailableTrips = tripRepository.findAll();
-        List<Trip> allPromotedTrips = new ArrayList<>();
-
-        int promotedTripsCounter = 0;
-        for (Trip trip : allAvailableTrips) {
-            if (promotedTripsCounter < 3 && trip.getPromoted()) {
-                allPromotedTrips.add(trip);
-                promotedTripsCounter++;
-            }
-        }
-        return allPromotedTrips;
+        List<Trip> allAvailableTrips = tripRepository
+                .findAll()
+                .stream()
+                .filter(trip -> trip.getPromoted())
+                .limit(3)
+                .collect(Collectors.toList());
+        return allAvailableTrips;
     }
 
     @Override
@@ -42,18 +38,9 @@ public class TripService_Implementation implements TripService {
                 .findAll()
                 .stream()
                 .sorted((Comparator.comparing(trip -> trip.getStartDate())))
+                .limit(3)
                 .collect(Collectors.toList());
-
-        List<Trip> closestTrips = new ArrayList<>();
-        int closestTripsCounter = 0;
-
-        for (Trip trip : allAvailableTripsSortedByDate) {
-            if (closestTripsCounter < 3) {
-                closestTrips.add(trip);
-                closestTripsCounter++;
-            }
-        }
-        return closestTrips;
+        return allAvailableTripsSortedByDate;
     }
 
     @Override
@@ -66,5 +53,41 @@ public class TripService_Implementation implements TripService {
         return tripRepository.getById(id);
     }
 
+    //    @Override
+//    public List<Trip> getThreeClosestTripsByDateAndByContinent() {
+//
+//        List<Trip> allAvailableTripsSortedByDate = tripRepository
+//                .findAll()
+//                .stream()
+//                .sorted((Comparator.comparing(trip -> trip.getStartDate())))
+//                .parallel()
+//                .sorted(Comparator.comparing(trip -> trip.getDestinationContinent().getName()))
+//                .limit(4)
+//                .collect(Collectors.toList());
+//
+//
+//        return allAvailableTripsSortedByDate;
+//    }
+    @Override
+    public List<Trip> getThreeClosestTripsByDateAndContinent() {
 
+        List<Trip> allAvailableTripsSortedByDateAndContinent = tripRepository
+                .findAll()
+                .stream()
+                .sorted((Comparator.comparing(trip -> trip.getStartDate())))
+                .sorted(Comparator.comparing(trip -> trip.getDestinationContinent().getName()))
+                .collect(Collectors.toList());
+
+        List<Trip> a = new ArrayList<>();
+        int counter = 0;
+
+        for (Trip trip : allAvailableTripsSortedByDateAndContinent) {
+            if (trip.getDestinationContinent().getName().equals("Europe") && counter < 3) {
+                a.add(trip);
+                counter++;
+            }
+        }
+        return a;
+    }
 }
+
