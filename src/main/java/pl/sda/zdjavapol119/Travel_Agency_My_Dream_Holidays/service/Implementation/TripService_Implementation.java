@@ -69,25 +69,55 @@ public class TripService_Implementation implements TripService {
 //        return allAvailableTripsSortedByDate;
 //    }
     @Override
-    public List<Trip> getThreeClosestTripsByDateAndContinent() {
+    public List<Trip> getThreeClosestTripsForEveryContinent() {
 
         List<Trip> allAvailableTripsSortedByDateAndContinent = tripRepository
                 .findAll()
                 .stream()
                 .sorted((Comparator.comparing(trip -> trip.getStartDate())))
-                .sorted(Comparator.comparing(trip -> trip.getDestinationContinent().getName()))
+                .sorted((Comparator.comparing(trip -> trip.getDestinationContinent().getName())))
                 .collect(Collectors.toList());
 
-        List<Trip> a = new ArrayList<>();
-        int counter = 0;
+        List<Trip> allClosestThreeTripsForEveryContinent = new ArrayList<>();
+        int counter1 = 0;
+        int counter2 = 0;
+        int counter3 = 0;
+        int counter4 = 0;
+        int counter5 = 0;
+        int counter6 = 0;
+        int counter7 = 0;
 
         for (Trip trip : allAvailableTripsSortedByDateAndContinent) {
-            if (trip.getDestinationContinent().getName().equals("Europe") && counter < 3) {
-                a.add(trip);
-                counter++;
+            if (trip.getDestinationContinent().getName().equals("Africa") && counter1 < 3) {
+                allClosestThreeTripsForEveryContinent.add(trip);
+                counter1++;
+            }
+            if (trip.getDestinationContinent().getName().equals("Asia") && counter2 < 3) {
+                allClosestThreeTripsForEveryContinent.add(trip);
+                counter2++;
+            }
+            if (trip.getDestinationContinent().getName().equals("Australia") && counter3 < 3) {
+                allClosestThreeTripsForEveryContinent.add(trip);
+                counter3++;
+            }
+            if (trip.getDestinationContinent().getName().equals("Europe") && counter4 < 3) {
+                allClosestThreeTripsForEveryContinent.add(trip);
+                counter4++;
+            }
+            if (trip.getDestinationContinent().getName().equals("North America") && counter5 < 3) {
+                allClosestThreeTripsForEveryContinent.add(trip);
+                counter5++;
+            }
+            if (trip.getDestinationContinent().getName().equals("South America") && counter6 < 3) {
+                allClosestThreeTripsForEveryContinent.add(trip);
+                counter6++;
+            }
+            if (trip.getDestinationContinent().getName().equals("Antarctica") && counter7 < 3) {
+                allClosestThreeTripsForEveryContinent.add(trip);
+                counter7++;
             }
         }
-        return a;
+        return allClosestThreeTripsForEveryContinent;
     }
 }
 

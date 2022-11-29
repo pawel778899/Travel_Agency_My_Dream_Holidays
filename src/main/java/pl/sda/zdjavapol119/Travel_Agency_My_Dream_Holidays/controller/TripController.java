@@ -45,12 +45,12 @@ public class TripController {
         return "threeClosestTrips";
     }
 
-    //Zbliżające się wycieczki z podziałem na kontynenty
+    //3 Zbliżające się wycieczki z każdego kontynentu, posortowane po startDate i kontynenncie
 
-    @GetMapping("/threeClosestTripsByContinent")
+    @GetMapping("/threeClosestTripsForEveryContinent")
     public String threeClosestTripsByContinent(ModelMap modelMap) {
-        modelMap.addAttribute("threeClosestTripsByContinent", tripService.getThreeClosestTripsByDateAndContinent());
-        return "threeClosestTripsByContinent";
+        modelMap.addAttribute("threeClosestTripsForEveryContinent", tripService.getThreeClosestTripsForEveryContinent());
+        return "threeClosestTripsForEveryContinent";
     }
 
 }

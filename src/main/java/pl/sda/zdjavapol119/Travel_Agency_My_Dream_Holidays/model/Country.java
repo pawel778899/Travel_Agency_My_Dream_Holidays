@@ -24,6 +24,6 @@ public class Country {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "country", cascade = CascadeType.ALL)
     private Set<City> cities;
 
-    @OneToMany(mappedBy = "destinationCountry", cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "destinationCountry", cascade = CascadeType.ALL)
     private List<Trip> trips;
 }
