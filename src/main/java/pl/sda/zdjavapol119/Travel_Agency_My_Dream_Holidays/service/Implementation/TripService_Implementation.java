@@ -119,5 +119,11 @@ public class TripService_Implementation implements TripService {
         }
         return allClosestThreeTripsForEveryContinent;
     }
+
+    @Override
+    public List<Trip> getThreeClosestTripsForEveryCountry() {
+        return null;
+    }
+
 }
 

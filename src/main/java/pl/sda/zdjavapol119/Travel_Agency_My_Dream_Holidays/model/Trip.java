@@ -21,27 +21,21 @@ public class Trip {
     @ManyToOne(fetch = FetchType.EAGER)
     private City originCity;
 
-    @ManyToOne
-    private Continent destinationContinent;
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    private Country destinationCountry;
-
     @ManyToOne(fetch = FetchType.EAGER)
     private Airport originAirport;
-
     @ManyToOne(fetch = FetchType.EAGER)
     private City destinationCity;
-
+    @ManyToOne
+    private Continent destinationContinent;
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Country destinationCountry;
     @ManyToOne(fetch = FetchType.EAGER)
     private Hotel destinationHotel;
-
     @ManyToOne(fetch = FetchType.EAGER)
     private Airport destinationAirport;
 
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDate startDate;
-
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDate endDate;
 

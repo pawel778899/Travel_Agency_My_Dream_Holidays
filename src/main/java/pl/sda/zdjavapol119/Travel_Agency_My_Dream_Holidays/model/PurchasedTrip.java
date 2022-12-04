@@ -23,7 +23,7 @@ public class PurchasedTrip {
 
     private BigDecimal tripPrice;
 
-    private Integer adultAmount;
+    private Integer  numberPlacesAdults;
 
-    private Integer childAmount;
+    private Integer numberPlacesChildren;
 }

@@ -14,4 +14,8 @@ public interface TripService {
 
     List<Trip> getThreeClosestTripsForEveryContinent();
 
+    List<Trip> getThreeClosestTripsForEveryCountry();
+
+
+
 }

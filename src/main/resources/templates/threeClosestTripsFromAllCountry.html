@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Three Closest Trips For Every Continent</title>
+</head>
+<body>
+<center>
+    <h1><div th:text="My_Dream_Holidays">Travel Agency My Dream Holidays</div></h1>
+
+    <table border="4" style="width:800px">
+        <h2>TThree Closest Trips From All Country: </h2>
+
+        <thead>
+        <tr>
+            <th>Destination city: </th>
+            <th>Origin city: </th>
+            <th>Duration time: </th>
+            <th>Price for adult: </th>
+            <th>Price for child: </th>
+            <th>Destination country: </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="trip : ${threeClosestTripsFromAllCountry}">
+            <td th:text="${trip.destinationCity.name}">Barcelona</td>
+            <td th:text="${trip.originCity.name}">Warsaw</td>
+            <td th:text="${trip.durationTime}">2</td>
+            <td th:text="${trip.adultPrice}">4000</td>
+            <td th:text="${trip.childPrice}">3000</td>
+            <td th:text="${trip.destinationCountry.name}">Europe</td>
+            <td><a th:href="@{/trips/{id}/(id=${trip.id})}">Details...</a></td>
+        </tr>
+        </tbody>
+    </table>
+    <a th:href="@{/mainPage}">Main-Page</a>
+</center>
+</body>
+</html>
+

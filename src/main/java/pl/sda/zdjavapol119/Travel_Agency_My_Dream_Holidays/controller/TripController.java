@@ -53,4 +53,15 @@ public class TripController {
         return "threeClosestTripsForEveryContinent";
     }
 
+    @GetMapping("/threeClosestTripsFromAllContinents")
+    public String threeClosestTripsFromAllContinents(ModelMap modelMap) {
+        modelMap.addAttribute("threeClosestTripsFromAllContinents", tripService.getThreeClosestTrips());
+        return "threeClosestTripsFromAllContinents";
+    }
+
+    @GetMapping("/threeClosestTripsFromAllCountry")
+    public String threeClosestTripsFromAllCountry(ModelMap modelMap) {
+        modelMap.addAttribute("threeClosestTripsFromAllCountry", tripService.getThreeClosestTrips());
+        return "threeClosestTripsFromAllCountry";
+    }
 }

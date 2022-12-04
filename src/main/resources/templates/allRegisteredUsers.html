@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>All Registered Users</title>
+</head>
+<body>
+<table border="4" style="width:800px">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Username</th>
+        <th>Role</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="user:${registeredUsers}">
+        <td th:text="${user.id}"/>
+        <td th:text="${user.username}"/>
+        <td th:text="${user.roles}"/>
+
+        <td><a th:href="@{/admin/delete_user/{id}/(id=${user.id}) }">Delete</a></td>
+        <td><a th:href="@{/admin/panel}">Back</a></td>
+
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

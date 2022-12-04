@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Trip Ordering</title>
+  <style>
+    table, th, td {
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+
+<form method="post" th:action="@{/trip/save}" th:object="${newPurchasedTrip}">
+  <h2>Trip Purchasing</h2>
+  <td text="${trip.id}" name="trip" hidden></td>
+  <table style="width:50%" class="table">
+    <tbody>
+
+    <tr>
+      <th>Origin city:</th>
+      <td th:text="${trip.originCity.name}"/>
+    </tr>
+    <tr>
+      <th>Origin airport:</th>
+      <td th:text="${trip.originAirport.name}"/>
+    </tr>
+    <tr>
+      <th>Destination city:</th>
+      <td th:text="${trip.destinationCity.name}"/>
+    </tr>
+    <tr>
+      <th>Destination airport:</th>
+      <td th:text="${trip.destinationAirport.name}"/>
+    </tr>
+    <tr>
+      <th>Destination hotel:</th>
+      <td th:text="${trip.destinationHotel.name}"/>
+    </tr>
+    <tr>
+      <th>Start date:</th>
+      <td th:text="${trip.startDate}"/>
+    </tr>
+    <tr>
+      <th>End date:</th>
+      <td th:text="${trip.endDate}"/>
+    </tr>
+    <tr>
+      <th>Number places for adults:</th>
+      <td th:text="${trip.numberPlacesAdults}"/>
+    </tr>
+    <tr>
+      <th>Number places for children:</th>
+      <td th:text="${trip.numberPlacesChildren}"/>
+    </tr>
+    <tr>
+      <th>Adult price:</th>
+      <td id="adultPrice" th:text="${trip.adultPrice}"/>
+    </tr>
+    <tr>
+      <th>Child price</th>
+      <td id="childPrice" th:text="${trip.childPrice}"/>
+    </tr>
+    </tbody>
+  </table>
+
+
+
+
+
+  <table style="width:50%" class="table">
+    <tbody>
+    <tr>
+      <td>
+        <label>
+          Number of adults:
+        </label>
+      </td>
+      <th><input id="numberPlacesAdults" type="number" value="1" min="1" oninput="totalPrice()" name="numberPlacesAdults" /></th>
+    </tr>
+    <td>
+      <label>
+        Number of children:
+      </label>
+    </td>
+    <th><input  id='numberPlacesChildren' type="number" value="0" min="0" oninput="totalPrice()" name="numberPlacesChildren" /></th>
+    </tr>
+    <tr>
+      <td>
+        <label>
+          Name:
+        </label>
+      </td>
+      <th><input type="text" name='name' required/></th>
+    </tr>
+    <tr>
+      <td>
+        <label>
+          Surname
+        </label>
+      </td>
+      <th><input type="text" name='surname' required/></th>
+    </tr>
+    <tr>
+      <td>
+        <label>
+          E-mail:
+        </label>
+      </td>
+      <th><input type="email" name='email' required/></th>
+    </tr>
+    <tr>
+      <td>
+        <label>
+         You have to pay:
+        </label>
+      </td>
+      <th>
+        <output id="totalPrice" name="totalPriceForTrip"></output>
+      </th>
+    </tr>
+    </tbody>
+  </table>
+  <td>
+    <input type="submit" value="Buy it">
+  </td>
+  <td>
+    <a th:href="@{/trips}">Back</a>
+  </td>
+
+  <script type="text/javascript">
+    function totalPrice(){
+      const adultPrice = Number.parseFloat(document.getElementById("adultPrice").textContent);
+      const childPrice = Number.parseFloat(document.getElementById("childPrice").textContent);
+      const numberPlacesAdults = document.getElementById("numberPlacesAdults").value;
+      const numberPlacesChildren = document.getElementById("numberPlacesChildren").value;
+      console.log(adultPrice, childPrice, numberPlacesAdults, numberPlacesChildren);
+
+      const totalPrice = adultPrice*numberPlacesAdults+childPrice*numberPlacesChildren;
+      document.getElementById("totalPrice").textContent = totalPrice;
+    }
+    totalPrice();
+  </script>
+</form>
+</body>
+</html>
