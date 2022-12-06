@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Trip Purchasing</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<form method="post" th:action="@{/trips/save}" th:object="${newPurchasedTrip}">
+    <h2><center>Buy_Your_Dream_Holidays !!!</center></h2>
+
+    <table style="width:50%" class="table">
+        <tbody>
+        <tr>
+            <th>Origin city:</th>
+            <td th:text="${trip.originCity.name}"></td>
+        </tr>
+        <tr>
+            <th>Origin airport:</th>
+            <td th:text="${trip.originAirport.name}"></td>
+        </tr>
+        <tr>
+            <th>Destination city:</th>
+            <td th:text="${trip.destinationCity.name}"></td>
+        </tr>
+        <tr>
+            <th>Destination city:</th>
+            <td th:text="${trip.destinationAirport.name}"></td>
+        </tr>
+        <tr>
+            <th>Destination hotel:</th>
+            <td th:text="${trip.destinationHotel.name}"></td>
+        </tr>
+        <tr>
+            <th>Start date:</th>
+            <td th:text="${trip.startDate}"></td>
+        </tr>
+        <tr>
+            <th>End date:</th>
+            <td th:text="${trip.endDate}"></td>
+        </tr>
+        <tr>
+            <th>Number places for adults:</th>
+            <td th:text="${trip.numberPlacesAdults}"></td>
+        </tr>
+        <tr>
+            <th>Number places for children:</th>
+            <td th:text="${trip.numberPlacesChildren}"></td>
+        </tr>
+        <tr>
+            <th>Adult price:</th>
+            <td id="adultPrice" th:text="${trip.adultPrice}"></td>
+        </tr>
+        <tr>
+            <th>Child price:</th>
+            <td id="childPrice" th:text="${trip.childPrice}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <table style="width:50%" class="table">
+        <tbody>
+        <tr>
+            <td>
+                <label>
+                    Adults number:
+                </label>
+            </td>
+            <th><label>Type the number of adults: </label><input id="numberPlacesAdults" type="number" value="1" min="1" oninput="totalPrice()" name="numberPlacesAdults"/></th>
+        </tr>
+        <td>
+            <label>
+                Children number:
+            </label>
+        </td>
+        <th><label>Type the number of children: </label><input id='numberPlacesChildren' type="number" value="0" min="0" oninput="totalPrice()" name="numberPlacesChildren"/></th>
+        <tr>
+            <td>
+                <label>
+                    Name:
+                </label>
+            </td>
+            <th><label>Type your name: </label><input type="text" name='name' required/></th>
+        </tr>
+        <tr>
+            <td>
+                <label>
+                    Surname:
+                </label>
+            </td>
+            <th><label>Type your surname: </label><input type="text" name='surname' required/></th>
+        </tr>
+        <tr>
+            <td>
+                <label>
+                    E-mail:
+                </label>
+            </td>
+            <th><label>Type your e-mail: </label><input type="text" name='email' required/></th>
+        </tr>
+        <tr>
+            <td>
+                <label>
+                    Amount to pay:
+                </label>
+            </td>
+            <th>
+                <output id="allPayment" name="price"></output>
+            </th>
+        </tr>
+        </tbody>
+
+    </table>
+
+    <td>
+        <input type="submit" value="Buy it !!!">
+    </td>
+    <td>
+        <a th:href="@{/trips}">Go back</a>
+    </td>
+
+    <script>
+
+        function totalPrice(){
+<!--        adult param-->
+        const adultPrice = Number.parseInt(document.getElementById("adultPrice").textContent);
+        const numberPlacesAdults = document.getElementById("numberPlacesAdults").value;
+
+<!--        child param-->
+        const numberPlacesChildren = document.getElementById("numberPlacesChildren").value;
+        const childPrice = Number.parseInt(document.getElementById("childPrice").textContent);
+
+<!--        total price calculation-->
+        const totalPrice = (adultPrice * numberPlacesAdults) + (childPrice * numberPlacesChildren);
+
+<!--        value assignment-->
+        document.getElementById("allPayment").textContent = totalPrice;
+        }
+
+        totalPrice();
+
+    </script>
+
+
+</form>
+</body>
+</html>

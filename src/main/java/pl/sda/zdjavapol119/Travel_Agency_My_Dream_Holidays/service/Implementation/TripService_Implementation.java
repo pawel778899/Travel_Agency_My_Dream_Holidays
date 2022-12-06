@@ -1,6 +1,7 @@
 package pl.sda.zdjavapol119.Travel_Agency_My_Dream_Holidays.service.Implementation;
 
 import org.springframework.stereotype.Service;
+import pl.sda.zdjavapol119.Travel_Agency_My_Dream_Holidays.model.PurchasedTrip;
 import pl.sda.zdjavapol119.Travel_Agency_My_Dream_Holidays.model.Trip;
 import pl.sda.zdjavapol119.Travel_Agency_My_Dream_Holidays.repository.TripRepository;
 import pl.sda.zdjavapol119.Travel_Agency_My_Dream_Holidays.service.TripService;
@@ -124,6 +125,17 @@ public class TripService_Implementation implements TripService {
     public List<Trip> getThreeClosestTripsForEveryCountry() {
         return null;
     }
+    @Override
+    public void save(Trip trip) {
+        tripRepository.save(trip);
+    }
+    @Override
+    public void save(Trip trip, PurchasedTrip purchasedTrip) {
+        trip.setNumberPlacesAdults(trip.getNumberPlacesAdults()- purchasedTrip.getNumberPlacesAdultsPurchased());
+        trip.setNumberPlacesChildren(trip.getNumberPlacesChildren()-purchasedTrip.getNumberPlacesChildrenPurchased());
+        save(trip);
+    }
+
 
 }
 

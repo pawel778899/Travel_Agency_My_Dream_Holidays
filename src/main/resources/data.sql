@@ -22,8 +22,8 @@ INSERT INTO city (id, name, country_id) VALUES (4, 'Sydney', 4);
 INSERT INTO city (id, name, country_id) VALUES (5, 'New York', 5);
 INSERT INTO city (id, name, country_id) VALUES (6, 'Buenos Aires', 6);
 INSERT INTO city (id, name, country_id) VALUES (7, 'City in Antarctica', 7);
-INSERT INTO city (id, name, country_id) VALUES (8, 'Warsaw', 1);
-INSERT INTO city (id, name, country_id) VALUES (9, 'Katowice', 1);
+INSERT INTO city (id, name, country_id) VALUES (8, 'Warsaw', 8);
+INSERT INTO city (id, name, country_id) VALUES (9, 'Katowice', 8);
 
 INSERT INTO hotel (id, name, standard, description, city_id) values (1, 'Hotel in Barcelona', 3, 'Description: Medium hotel', 1);
 INSERT INTO hotel (id, name, standard, description, city_id) values (2, 'Hotel in Tokyo', 3, 'Description: Medium hotel', 2);
@@ -40,7 +40,7 @@ INSERT INTO airport (id, name, city_id) VALUES (4, 'Airport in Sydney',4);
 INSERT INTO airport (id, name, city_id) VALUES (5, 'Airport in New York',5);
 INSERT INTO airport (id, name, city_id) VALUES (6, 'Airport in Buenos Aires',6);
 INSERT INTO airport (id, name, city_id) VALUES (7, 'Airport in Antarctica',7);
-INSERT INTO airport (id, name, city_id) VALUES (8, 'Airport in Wasaw',8);
+INSERT INTO airport (id, name, city_id) VALUES (8, 'Airport in Warsaw',8);
 
 INSERT INTO trip(origin_city_id, origin_airport_id, destination_city_id, destination_country_id , destination_continent_id, destination_airport_id, destination_hotel_id, start_date, end_date, duration_time, adult_price, child_price, promoted, number_places_adults , number_places_children)VALUES (8, 8, 1, 1, 1, 1, 1, '2023-07-1', '2023-07-9', 8, 3000, 2900, 1, 25, 15);
 INSERT INTO trip(origin_city_id, origin_airport_id, destination_city_id, destination_country_id , destination_continent_id, destination_airport_id, destination_hotel_id, start_date, end_date, duration_time, adult_price, child_price, promoted, number_places_adults , number_places_children)VALUES (8, 8, 2, 2, 2, 2, 2, '2023-07-1', '2023-07-16', 15, 3200, 3000, 0, 40, 14);
