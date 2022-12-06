@@ -1,5 +1,7 @@
 package pl.sda.zdjavapol119.Travel_Agency_My_Dream_Holidays.service.Implementation;
 
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 import pl.sda.zdjavapol119.Travel_Agency_My_Dream_Holidays.model.Client;
 import pl.sda.zdjavapol119.Travel_Agency_My_Dream_Holidays.model.PurchasedTrip;
@@ -10,6 +12,8 @@ import pl.sda.zdjavapol119.Travel_Agency_My_Dream_Holidays.service.PurchaseTripS
 import java.math.BigDecimal;
 import java.util.List;
 
+@Slf4j
+@Primary
 @Service
 public class PurchaseTripService_Implementation implements PurchaseTripService {
 
@@ -28,18 +32,14 @@ public class PurchaseTripService_Implementation implements PurchaseTripService {
     public void save(PurchasedTrip purchasedTrip, Client client, Trip trip) {
         purchasedTrip.setClient(client);
         purchasedTrip.setTrip(trip);
-//        calculateAllRequiredCost(purchasedTrip);
+        calculateAllRequiredCost(purchasedTrip);
         purchasedTripRepository.save(purchasedTrip);
 
-
     }
-//
-//    @Override
-//    public void calculateAllRequiredCost(PurchasedTrip purchasedTrip) {
-//        purchasedTrip.setTripPrice();
-//    }
-//
-//    public void countPrice(BoughtTour boughtTour) {
-//        boughtTour.setPrice(boughtTour.getTour().getMinorPrice().multiply(BigDecimal.valueOf(boughtTour.getChildAmount())).add(boughtTour.getTour().getAdultPrice().multiply(BigDecimal.valueOf(boughtTour.getAdultAmount()))));
-//    }
+
+    @Override
+    public void calculateAllRequiredCost(PurchasedTrip purchasedTrip) {
+        purchasedTrip.setTripPrice(purchasedTrip.getTrip().getChildPrice().multiply(BigDecimal.valueOf(purchasedTrip.getNumberPlacesChildrenPurchased())).add(purchasedTrip.getTrip().getAdultPrice().multiply(BigDecimal.valueOf(purchasedTrip.getNumberPlacesAdultsPurchased()))));
+    }
+
 }

@@ -41,7 +41,7 @@ public class PurchasedTripController {
     @GetMapping("/trip/purchaseTrip/{id}")
     public String purchaseTripSheet(@PathVariable Long id, ModelMap modelMap) {
         PurchasedTrip purchasedTrip = new PurchasedTrip();
-        Trip trip2 = tripService.getById(id);
+        trip2 = tripService.getById(id);
         purchasedTrip.setTrip(trip2);
         modelMap.addAttribute("newPurchasedTrip", purchasedTrip);
         modelMap.addAttribute("client", new Client());
@@ -56,7 +56,7 @@ public class PurchasedTripController {
         clientService.save(client);
         log.info(client + "was added." + client);
 
-        tripService.save(trip2,purchasedTrip);
+        tripService.save(trip2, purchasedTrip);
 
         purchaseTripService.save(purchasedTrip, client, trip2);
         log.info(purchasedTrip +"was purchased.");

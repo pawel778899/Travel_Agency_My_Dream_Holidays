@@ -11,6 +11,6 @@ public interface PurchaseTripService {
     List<PurchasedTrip> findAll();
 
     void save(PurchasedTrip purchasedTrip, Client client, Trip trip);
-//    void calculateAllRequiredCost(PurchasedTrip purchasedTrip);
+    void calculateAllRequiredCost(PurchasedTrip purchasedTrip);
 
 }

@@ -1,15 +1,19 @@
 package pl.sda.zdjavapol119.Travel_Agency_My_Dream_Holidays.model;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.hibernate.Hibernate;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Objects;
 
-@Data
+@Getter
+@Setter
+@ToString
+@AllArgsConstructor
 @NoArgsConstructor
 @Entity
 
@@ -23,7 +27,8 @@ public class Trip {
 
     @ManyToOne(fetch = FetchType.EAGER)
     private Airport originAirport;
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @ToString.Exclude
     private City destinationCity;
     @ManyToOne
     private Continent destinationContinent;
@@ -59,7 +64,21 @@ public class Trip {
     private Integer numberPlacesChildren;
 
     @OneToMany(mappedBy = "trip", cascade = CascadeType.ALL)
+    @ToString.Exclude
     List<PurchasedTrip> purchasedTrip;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        Trip trip = (Trip) o;
+        return id != null && Objects.equals(id, trip.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
+    }
 }
 
 

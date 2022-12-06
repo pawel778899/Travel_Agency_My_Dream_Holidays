@@ -22,7 +22,7 @@ public class Country {
     private Continent continent;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "country", cascade = CascadeType.ALL)
-    private Set<City> cities;
+    private List<City> cities;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "destinationCountry", cascade = CascadeType.ALL)
     private List<Trip> trips;
