@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Holiday_Purchase_Summary</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Good choice. You're going on holidays soon.</h2>
+    <h3>Check your e-mail to get more information</h3>
+
+    <form method="get" th:action="@{/trips}">
+    <table style="width:50%" class="table">
+        <tbody>
+        <tr>
+            <th> Adults number:</th>
+            <td id="numberPlacesAdults" th:text="${newPurchasedTrip.numberPlacesAdultsPurchased}"></td>
+        </tr>
+        <tr>
+            <th>Children number:</th>
+            <td id="numberPlacesChildren" th:text="${newPurchasedTrip.numberPlacesChildrenPurchased}"></td>
+        </tr>
+        <tr>
+            <th>Name:</th>
+            <td id="name" th:text="${client.name}"></td>
+        </tr>
+        <tr>
+            <th>Surname:</th>
+            <td id="surname" th:text="${client.surname}"></td>
+        </tr>
+        <tr>
+            <th>E-mail:</th>
+            <td id="email" th:text="${client.email}"></td>
+        </tr>
+        <tr>
+            <th>Amount to pay:</th>
+            <td id="allPayment" th:text="${newPurchasedTrip.price}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <td>
+        <input type="submit" value="Ok">
+    </td>
+
+</form>
+</body>
+</html>
