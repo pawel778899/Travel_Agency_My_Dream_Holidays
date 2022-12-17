@@ -1,6 +1,7 @@
 package pl.sda.zdjavapol119.Travel_Agency_My_Dream_Holidays.controller;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,7 +34,7 @@ public class PurchasedTripController {
         this.clientService = clientService;
         this.tripService = tripService;
     }
-    private Trip trip2;
+    private Trip trip;
 
 
 
@@ -41,11 +42,11 @@ public class PurchasedTripController {
     @GetMapping("/trip/purchaseTrip/{id}")
     public String purchaseTripSheet(@PathVariable Long id, ModelMap modelMap) {
         PurchasedTrip purchasedTrip = new PurchasedTrip();
-        trip2 = tripService.getById(id);
-        purchasedTrip.setTrip(trip2);
+        trip = tripService.getById(id);
+        purchasedTrip.setTrip(trip);
         modelMap.addAttribute("newPurchasedTrip", purchasedTrip);
         modelMap.addAttribute("client", new Client());
-        modelMap.addAttribute("trip", trip2);
+        modelMap.addAttribute("trip", trip);
 
 
         return "tripPurchase";
@@ -56,9 +57,9 @@ public class PurchasedTripController {
         clientService.save(client);
         log.info(client + "was added." + client);
 
-        tripService.save(trip2, purchasedTrip);
+        tripService.save(trip, purchasedTrip);
 
-        purchaseTripService.save(purchasedTrip, client, trip2);
+        purchaseTripService.save(purchasedTrip, client, trip);
         log.info(purchasedTrip +"was purchased.");
 
         return "/tripPurchase2";

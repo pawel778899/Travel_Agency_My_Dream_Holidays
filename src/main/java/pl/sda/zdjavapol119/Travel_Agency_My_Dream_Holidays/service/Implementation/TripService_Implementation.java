@@ -130,11 +130,10 @@ public class TripService_Implementation implements TripService {
     public void save(Trip trip) {
         tripRepository.save(trip);
     }
-    @Override
+    @Override //dodać ograniczenie na ilość miejsc
     public void save(Trip trip, PurchasedTrip purchasedTrip) {
-
         trip.setNumberPlacesAdults(trip.getNumberPlacesAdults() - purchasedTrip.getNumberPlacesAdultsPurchased());
-        trip.setNumberPlacesAdults(trip.getNumberPlacesChildren() - purchasedTrip.getNumberPlacesChildrenPurchased());
+        trip.setNumberPlacesChildren(trip.getNumberPlacesChildren() - purchasedTrip.getNumberPlacesChildrenPurchased());
         save(trip);
     }
 

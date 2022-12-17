@@ -21,7 +21,7 @@ public class Auth extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
-                .withUser("user").password(passwordEncoder().encode("user")).roles("USER")
+                .withUser("user").password(passwordEncoder().encode("user")).roles("CLIENT")
                 .and()
                 .withUser("admin").password(passwordEncoder().encode("admin")).roles("ADMIN");
     }
@@ -30,11 +30,11 @@ public class Auth extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/mainPage") // mają dostęp wszyscy użytkownicy ROLE_USER
-                .hasAnyAuthority("ROLE_USER")
-                .antMatchers("/allRegisteredUsers")
-                .hasAnyAuthority("ROLE_ADMIN")
+                .antMatchers("/") // mają dostęp wszyscy użytkownicy ROLE_USER
+                .hasAnyAuthority("ROLE_CLIENT")
                 .antMatchers("/")
+                .hasAnyAuthority("ROLE_ADMIN")
+                .antMatchers("/login", "/trips/**", "trip/purchaseTrip/**","/h2-console/**", "/mainPage/**")
                 .permitAll()
                 .and()
                 .csrf().disable() // wyłączamy zabezpieczenie csrf w celu użycia postmana

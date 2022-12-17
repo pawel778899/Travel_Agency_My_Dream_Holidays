@@ -73,14 +73,14 @@
                     Adults number:
                 </label>
             </td>
-            <th><label>Type the number of adults: </label><input id="numberPlacesAdults" type="number" value="1" min="1" oninput="totalPrice()" name="numberPlacesAdults"/></th>
+            <th><label>Type the number of adults: </label><input id="numberPlacesAdultsPurchased" type="number" value="1" min="1" oninput="totalPrice()" name="numberPlacesAdultsPurchased"/></th>
         </tr>
         <td>
             <label>
                 Children number:
             </label>
         </td>
-        <th><label>Type the number of children: </label><input id='numberPlacesChildren' type="number" value="0" min="0" oninput="totalPrice()" name="numberPlacesChildren"/></th>
+        <th><label>Type the number of children: </label><input id='numberPlacesChildrenPurchased' type="number" value="0" min="0" oninput="totalPrice()" name="numberPlacesChildrenPurchased"/></th>
         <tr>
             <td>
                 <label>
@@ -128,13 +128,15 @@
 
     <script>
 
+<!--COST COUNTER -->
         function totalPrice(){
 <!--        adult param-->
+        const numberPlacesAdults = document.getElementById("numberPlacesAdultsPurchased").value;
         const adultPrice = Number.parseInt(document.getElementById("adultPrice").textContent);
-        const numberPlacesAdults = document.getElementById("numberPlacesAdults").value;
+
 
 <!--        child param-->
-        const numberPlacesChildren = document.getElementById("numberPlacesChildren").value;
+        const numberPlacesChildren = document.getElementById("numberPlacesChildrenPurchased").value;
         const childPrice = Number.parseInt(document.getElementById("childPrice").textContent);
 
 <!--        total price calculation-->
@@ -143,7 +145,7 @@
 <!--        value assignment-->
         document.getElementById("allPayment").textContent = totalPrice;
         }
-
+<!--calling function to see counter on http://localhost:8080/trip/purchaseTrip/{id} -->
         totalPrice();
 
     </script>

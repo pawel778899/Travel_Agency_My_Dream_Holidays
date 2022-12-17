@@ -32,14 +32,14 @@ public class PurchaseTripService_Implementation implements PurchaseTripService {
     public void save(PurchasedTrip purchasedTrip, Client client, Trip trip) {
         purchasedTrip.setClient(client);
         purchasedTrip.setTrip(trip);
-        calculateAllRequiredCost(purchasedTrip);
+//        calculateAllRequiredCost(purchasedTrip);
         purchasedTripRepository.save(purchasedTrip);
 
     }
 
-    @Override
-    public void calculateAllRequiredCost(PurchasedTrip purchasedTrip) {
-        purchasedTrip.setTripPrice(purchasedTrip.getTrip().getChildPrice().multiply(BigDecimal.valueOf(purchasedTrip.getNumberPlacesChildrenPurchased())).add(purchasedTrip.getTrip().getAdultPrice().multiply(BigDecimal.valueOf(purchasedTrip.getNumberPlacesAdultsPurchased()))));
-    }
+//    @Override
+//    public void calculateAllRequiredCost(PurchasedTrip purchasedTrip) {
+//        purchasedTrip.setTripPrice(purchasedTrip.getTrip().getChildPrice().multiply(BigDecimal.valueOf(purchasedTrip.getNumberPlacesChildrenPurchased())).add(purchasedTrip.getTrip().getAdultPrice().multiply(BigDecimal.valueOf(purchasedTrip.getNumberPlacesAdultsPurchased()))));
+//    }
 
 }
