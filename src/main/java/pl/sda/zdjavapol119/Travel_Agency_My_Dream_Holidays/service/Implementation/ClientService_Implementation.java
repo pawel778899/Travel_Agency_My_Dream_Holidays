@@ -43,8 +43,8 @@ public class ClientService_Implementation implements ClientService {
     }
 
     @Override
-    public Client getByName(String name) {
-        return clientRepository.findByName(name);
+    public Optional<Client> getByName(String name) {
+        return Optional.ofNullable(clientRepository.findByName(name));
     }
 
     @Override

@@ -32,7 +32,7 @@ public class Auth extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/") // mają dostęp wszyscy użytkownicy ROLE_USER
                 .hasAnyAuthority("ROLE_CLIENT")
-                .antMatchers("/")
+                .antMatchers("/","/login")
                 .hasAnyAuthority("ROLE_ADMIN")
                 .antMatchers("/login", "/trips/**", "trip/purchaseTrip/**","/h2-console/**", "/mainPage/**")
                 .permitAll()

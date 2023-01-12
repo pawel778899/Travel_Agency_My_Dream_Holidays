@@ -8,6 +8,7 @@ import pl.sda.zdjavapol119.Travel_Agency_My_Dream_Holidays.repository.TripReposi
 import pl.sda.zdjavapol119.Travel_Agency_My_Dream_Holidays.service.TripService;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -126,16 +127,41 @@ public class TripService_Implementation implements TripService {
     public List<Trip> getThreeClosestTripsForEveryCountry() {
         return null;
     }
+
     @Override
     public void save(Trip trip) {
         tripRepository.save(trip);
     }
+
+
     @Override //dodać ograniczenie na ilość miejsc
     public void save(Trip trip, PurchasedTrip purchasedTrip) {
         trip.setNumberPlacesAdults(trip.getNumberPlacesAdults() - purchasedTrip.getNumberPlacesAdultsPurchased());
         trip.setNumberPlacesChildren(trip.getNumberPlacesChildren() - purchasedTrip.getNumberPlacesChildrenPurchased());
         save(trip);
     }
+
+    @Override
+    public List<Trip> sortTrips(String sort, List<Trip> sortedTrips) {
+
+        switch (sort) {
+            case "adultPrice":
+                return sortedTrips.stream()
+                        .sorted(Comparator.comparing(trip -> trip.getAdultPrice()))
+                        .collect(Collectors.toList());
+            case "childPrice":
+                return sortedTrips.stream()
+                        .sorted(Comparator.comparing(trip -> trip.getChildPrice()))
+                        .collect(Collectors.toList());
+            case "durationTime":
+                return sortedTrips.stream()
+                        .sorted(Comparator.comparing(trip -> trip.getDurationTime()))
+                        .collect(Collectors.toList());
+        }
+        return Collections.emptyList();
+
+    }
+
 
 
 }

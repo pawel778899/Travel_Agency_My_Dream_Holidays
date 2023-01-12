@@ -19,5 +19,5 @@ public interface TripService {
 
     void save(Trip trip, PurchasedTrip purchasedTrip);
     void save(Trip trip);
-
+    List<Trip> sortTrips(String sort, List<Trip> sortedTrips);
 }

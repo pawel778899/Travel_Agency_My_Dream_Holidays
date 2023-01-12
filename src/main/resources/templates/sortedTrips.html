@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Trip sorting</title>
+</head>
+<body>
+<center>
+
+
+  <div id="list_changers">
+    <div style="display: inline-block" id="sort_changers">
+      <form method="POST" th:action="@{/trips/sort}" style="border-style: double;">
+        <h4>Trip sorting:</h4>
+        <input style="display: inline-block" type="radio" id="adultPrice" name="sort" value="adultPrice">
+        <label for="adultPrice">Price for adult</label><br>
+        <input style="display: inline-block" type="radio" id="childPrice" name="sort" value="childPrice">
+        <label for="childPrice">Price for child</label><br>
+        <input style="display: inline-block" type="radio" id="durationTime" name="sort" value="durationTime">
+        <label for="durationTime">Duration time</label><br>
+        <button type="submit">Sort</button>
+      </form>
+    </div>
+
+
+    <table class="table">
+      <h3>Wyniki wyszukiwania dla: </h3>
+      <p th:text="${currentSortStatus}"></p>
+      <thead>
+      <tr>
+        <th>Destination city: </th>
+        <th>Adult price: </th>
+        <th>Child price: </th>
+        <th>Duration time: </th>
+        <th>Origin City: </th>
+
+
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="trip : ${afterSortStatus}">
+        <td th:text="${trip.destinationCity.name}"></td>
+        <td th:text="${trip.adultPrice}"/>
+        <td th:text="${trip.childPrice}"/>
+        <td th:text="${trip.durationTime}"/>
+        <td th:text="${trip.originCity.name}"/>
+
+        <td>
+        <td><a th:href="@{/trips/{id}/(id=${trip.id})}">Details...</a></td>
+        </td>
+
+      </tr>
+      </tbody>
+    </table>
+
+
+
+  <a th:href="@{/mainPage}">Main-Page</a>
+</center>
+</body>
+</html>

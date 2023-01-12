@@ -1,6 +1,5 @@
 package pl.sda.zdjavapol119.Travel_Agency_My_Dream_Holidays.model;
 
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

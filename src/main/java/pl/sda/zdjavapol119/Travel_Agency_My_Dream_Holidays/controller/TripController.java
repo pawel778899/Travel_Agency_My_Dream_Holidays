@@ -1,19 +1,31 @@
 package pl.sda.zdjavapol119.Travel_Agency_My_Dream_Holidays.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import pl.sda.zdjavapol119.Travel_Agency_My_Dream_Holidays.model.Trip;
 import pl.sda.zdjavapol119.Travel_Agency_My_Dream_Holidays.service.TripService;
 
+import java.util.List;
+
+@Slf4j
 @Controller
 public class TripController {
 
     private final TripService tripService;
 
+    private List<Trip> afterSortStatus;
+
+    private String currentSortStatus = "";
+
     public TripController(TripService tripService) {
         this.tripService = tripService;
+        this.afterSortStatus = tripService.getAllTripList();
+
     }
 
     //Prezentacja promowanych 3 wycieczek
@@ -63,5 +75,20 @@ public class TripController {
     public String threeClosestTripsFromAllCountry(ModelMap modelMap) {
         modelMap.addAttribute("threeClosestTripsFromAllCountry", tripService.getThreeClosestTrips());
         return "threeClosestTripsFromAllCountry";
+    }
+
+    @GetMapping("/sortedTrips")
+    public String sortedTrips(ModelMap modelMap) {
+        modelMap.addAttribute("afterSortStatus", afterSortStatus);
+        modelMap.addAttribute("currentSortStatus", currentSortStatus);
+        return "sortedTrips";
+    }
+
+    @PostMapping("/trips/sort")
+    public String tripSort(@RequestParam("sort") String sort) {
+        log.info("You used " + sort + " sorter.");
+        this.afterSortStatus = tripService.sortTrips(sort, afterSortStatus);
+        return "redirect:/sortedTrips";
+
     }
 }

@@ -6,15 +6,15 @@ import java.util.List;
 import java.util.Optional;
 
 public interface ClientService {
-
     List<Client> findAll();
 
-   Optional<Client> getById(Integer id);
+    Optional<Client> getById(Integer id);
 
-    Client getByName(String name);
+    Optional<Client> getByName(String name);
 
-    void save (Client client);
-    void delete (Client client);
+    void save(Client client);
+
+    void delete(Client client);
 
 
 }
