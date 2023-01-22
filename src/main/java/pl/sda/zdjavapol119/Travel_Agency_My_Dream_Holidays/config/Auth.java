@@ -32,9 +32,9 @@ public class Auth extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/") // mają dostęp wszyscy użytkownicy ROLE_USER
                 .hasAnyAuthority("ROLE_CLIENT")
-                .antMatchers("/","/login")
+                .antMatchers("/","/login","/h2-console/**")
                 .hasAnyAuthority("ROLE_ADMIN")
-                .antMatchers("/login", "/trips/**", "trip/purchaseTrip/**","/h2-console/**", "/mainPage/**")
+                .antMatchers("/login", "/trips/**", "trip/purchaseTrip/**", "/mainPage/**")
                 .permitAll()
                 .and()
                 .csrf().disable() // wyłączamy zabezpieczenie csrf w celu użycia postmana
