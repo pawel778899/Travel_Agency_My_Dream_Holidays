@@ -20,8 +20,6 @@ public class TripController {
 
     private List<Trip> afterSortStatus;
 
-    private String currentSortStatus = "";
-
     public TripController(TripService tripService) {
         this.tripService = tripService;
         this.afterSortStatus = tripService.getAllTripList();
@@ -80,7 +78,6 @@ public class TripController {
     @GetMapping("/sortedTrips")
     public String sortedTrips(ModelMap modelMap) {
         modelMap.addAttribute("afterSortStatus", afterSortStatus);
-        modelMap.addAttribute("currentSortStatus", currentSortStatus);
         return "sortedTrips";
     }
 
