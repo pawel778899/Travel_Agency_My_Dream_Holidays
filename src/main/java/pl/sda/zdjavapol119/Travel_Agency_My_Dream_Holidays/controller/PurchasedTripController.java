@@ -38,7 +38,7 @@ public class PurchasedTripController {
 
 
 
-    //@Transactional
+
     @GetMapping("/trip/purchaseTrip/{id}")
     public String purchaseTripSheet(@PathVariable Long id, ModelMap modelMap) {
         PurchasedTrip purchasedTrip = new PurchasedTrip();
@@ -51,7 +51,7 @@ public class PurchasedTripController {
 
         return "tripPurchase";
     }
-    //@Transactional
+
     @PostMapping("/trips/save")
     public String purchaseTripSave(@ModelAttribute("newPurchasedTrip") PurchasedTrip purchasedTrip, @ModelAttribute("client") Client client) {
         clientService.save(client);

@@ -17,16 +17,4 @@ public class LoginController {
     public String login() {
         return "loginPanel";
     }
-
-//    @GetMapping("/logout")
-//    public RedirectView logout(HttpServletRequest request, HttpServletResponse response) {
-//
-//        final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-//
-//        if (authentication != null) {
-//            new SecurityContextLogoutHandler().logout(request, response, authentication);
-//        }
-//
-//        return new RedirectView("/");
-//    }
 }
