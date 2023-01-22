@@ -4,6 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Three Promoted Trips</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
 </head>
 <body>
 <center>
@@ -27,7 +31,8 @@
             <td th:text="${trip.durationTime}">2</td>
             <td th:text="${trip.adultPrice}">4000</td>
             <td th:text="${trip.childPrice}">3000</td>
-            <td><a th:href="@{/trips/{id}/(id=${trip.id})}">Details...</a></td>
+            <td><a th:href="@{/trips/{id}/(id=${trip.id})}"
+                   class = "btn btn-danger">Details...</a></td>
         </tr>
         </tbody>
     </table>

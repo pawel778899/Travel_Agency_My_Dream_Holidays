@@ -4,6 +4,10 @@
 
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
 </head>
 <body>
 <center>
@@ -31,7 +35,8 @@
             <td th:text="${trip.childPrice}">3000</td>
 
             <td>
-                <a th:href="@{/trips/{id}/(id=${trip.id})}">Details...</a>
+                <a th:href="@{/trips/{id}/(id=${trip.id})}"
+                   class = "btn btn-danger">Details...</a>
             </td>
         </tr>
         </tbody>

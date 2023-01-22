@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
 </head>
 <body>
 <center>
@@ -62,7 +66,8 @@
 
     <p><a th:href="@{/mainPage}">Main-Page</a></p>
 
-    <p><a th:href="@{/trip/purchaseTrip/{id}(id=${trip.id})}"> Buy now !!! </a></p>
+    <p><a th:href="@{/trip/purchaseTrip/{id}(id=${trip.id})}"
+        class = "btn btn-primary">Buy now !!!</a></p>
 
 
 
