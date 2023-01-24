@@ -4,5 +4,5 @@ Technologies used: Java, Spring, Hibernate, MySQL, Thymeleaf, HTML, CSS, JavaScr
 
 Travel agency service description - a program that allows you to search for trips according to given criteria and "buy" them.
 
-**My first BIG project as an example that I still have a lot to learn ;-)**
+**My first BIG project - still a lot of to learn ;-)**
 
